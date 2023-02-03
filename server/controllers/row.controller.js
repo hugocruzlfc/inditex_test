@@ -31,12 +31,12 @@ rowRouter.get("/:id", async (request, response) => {
 rowRouter.post("/", async (request, response) => {
   try {
     const body = request.body;
-    const currentTemplate = await Template.findById(body.templateId);
+    const currentTemplate = await Template.findById(body.template);
 
     const row = new Row({
       name: body.name,
       aesthetic: body.aesthetic,
-      template: body.templateId,
+      template: body.template,
     });
 
     const savedRow = await row.save();
