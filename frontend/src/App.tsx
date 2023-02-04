@@ -1,30 +1,41 @@
-
-
+import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Header, ProductList, TemplateDetails, Home } from "./components";
+import { Header,TemplateDetails, } from "./components";
+import { ProductContextProvider, RowContextProvider } from './context';
+import { DndProvider } from "react-dnd"
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { DndContainer, ProductContainer,TemplateContainer } from './containers';
 
 
 function App() {
   return (
-
+    <DndProvider backend={HTML5Backend}>
+      <ProductContextProvider>
+        <RowContextProvider>
     <BrowserRouter>
       <Header />
-      <Routes>
-        <Route
+            <Routes>
+            <Route
           path="/"
-          element={<Home />}
+          element={<ProductContainer />}
         />
         <Route
-          path="/products"
-          element={<ProductList />}
+          path="/templates"
+          element={<TemplateContainer />}
         />
         <Route
           path="/template/:id"
           element={<TemplateDetails />}
         />
+        <Route
+          path="/dnd/:rowId"
+          element={<DndContainer />}
+        />
       </Routes>
-    </BrowserRouter>
-
+          </BrowserRouter>
+          </RowContextProvider>
+      </ProductContextProvider>
+      </DndProvider>
   );
 }
 export default App;

@@ -1,7 +1,7 @@
-import { Row } from "./Row";
+import { RowResponse } from "./Row";
 
 export interface Template {
   id?: string;
   name: string;
-  rows: Row[];
+  rows: RowResponse[];
 }

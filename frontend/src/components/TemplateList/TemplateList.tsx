@@ -1,3 +1,4 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { Template } from '../../types'
 import { TemplateItem } from '../TemplateItem'
@@ -20,7 +21,7 @@ export default function TemplateList({ templates }: Props) {
                     </p>
 
                     <div className="text-gray-900 font-bold text-xl mb-2 mt-2">There are no templates!</div>
-                    <p className="text-gray-700 text-base">You must create the templates. You can use the button below.</p>
+                    <p className="text-gray-700 text-base">You must create the templates. You can use the 'New Template' button.</p>
                 </div>
             </div>
         </div>

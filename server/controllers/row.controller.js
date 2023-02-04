@@ -37,6 +37,7 @@ rowRouter.post("/", async (request, response) => {
       name: body.name,
       aesthetic: body.aesthetic,
       template: body.template,
+      products: body.products 
     });
 
     const savedRow = await row.save();
